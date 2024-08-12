@@ -12,7 +12,7 @@ function Gameboard(){
         }
     };
 
-    return board
+    console.log(board);
     //allow user to put their mark on a space below
     // ******
 };
@@ -31,7 +31,9 @@ function Cell(){
 };
 
 function Controller(){
-    const player = [
+    const board = Gameboard();
+    
+    const players = [
         {
             name: 'PlayerOne',
             mark: 1
@@ -41,4 +43,9 @@ function Controller(){
             mark: 2
         }
     ];
+    let activePlayer = players[0];
+    const switchPlayerTurn = () => {
+        activePlayer = activePlayer === players[0] ? players[1] : players[0];
+      };
+
 };
