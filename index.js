@@ -12,6 +12,7 @@ function Gameboard(){
         }
     };
 
+    return board
     //allow user to put their mark on a space below
     // ******
 };
@@ -29,3 +30,15 @@ function Cell(){
     };
 };
 
+function Controller(){
+    const player = [
+        {
+            name: 'PlayerOne',
+            mark: 1
+        },
+        {
+            name:'PlayerTwo',
+            mark: 2
+        }
+    ];
+};
