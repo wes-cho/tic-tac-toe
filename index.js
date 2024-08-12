@@ -2,12 +2,30 @@ function Gameboard(){
     const rows = 3;
     const columns = 3;
     const board = [];
-
+    
+    //create gameboard
     for (let i=0;i<rows;i++){
         board[i]=[];
         for (let j=0; j<columns; j++){
-                board[i].push(Cell()); // Cell method not created yet
+                //board[i][j]
+                board[i].push(Cell());
         }
-    }
+    };
+
+    //allow user to put their mark on a space below
+    // ******
+};
+
+function Cell(){
+    let value = 0;
+    const addMark = (playerMark) => {
+        value = playerMark; // either 1 or 2 (x/o)
+    };
+
+    const getValue = () => value;
+    return {
+        addMark, 
+        getValue,
+    };
 };
 
