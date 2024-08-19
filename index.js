@@ -54,7 +54,7 @@ const Controller = (()=> {
     const squareClick = (event) => {
         let index = parseInt(event.target.id.split('-')[1]);
         Gameboard.addMark(index, players[currentPlayerIndex].mark);
-
+        currentPlayerIndex = (currentPlayerIndex === 0) ? 1 : 0;
     };
 
     return{
