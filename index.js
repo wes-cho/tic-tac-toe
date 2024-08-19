@@ -9,10 +9,21 @@ const Gameboard = (()=> {
             });
 
         document.querySelector('#board').innerHTML = boardHTML;
+
+        const squares = document.querySelectorAll('.square');
+        squares.forEach((square) => {
+            square.addEventListener('click', Controller.squareClick)
+        });
     };
+
+    const addMark = (index, mark) => {
+        board[index] = mark;
+        render();
+    }
 
     return{
         render,
+        addMark,
     };
 })();
 
@@ -37,20 +48,18 @@ const Controller = (()=> {
         gameOver = false;
         Gameboard.render();
         
-        const squares = document.querySelectorAll('.square');
-        squares.forEach((square) => {
-            square.addEventListener('click', squareClick)
-        });
+        
     };
     
     const squareClick = (event) => {
         let index = parseInt(event.target.id.split('-')[1]);
-        addMark(index, players[currentPlayerIndex].mark)
-        // console.log(event.target.id)
+        Gameboard.addMark(index, players[currentPlayerIndex].mark);
+
     };
 
     return{
         start,
+        squareClick,
     }
 })();
 
