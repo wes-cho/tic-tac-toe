@@ -1,6 +1,8 @@
 const Gameboard = (()=> {
     let board = ["","","","","","","","",""]
 
+    const getBoard = () => board;
+
     const render = () => {
         let boardHTML = "";
 
@@ -24,6 +26,7 @@ const Gameboard = (()=> {
     return{
         render,
         addMark,
+        getBoard,
     };
 })();
 
@@ -47,14 +50,21 @@ const Controller = (()=> {
         currentPlayerIndex = 0;
         gameOver = false;
         Gameboard.render();
-        
-        
+        const squares = document.querySelectorAll('.square');
+        squares.forEach((square) => {
+            square.addEventListener('click', squareClick)
+        });
     };
-    
+
     const squareClick = (event) => {
         let index = parseInt(event.target.id.split('-')[1]);
-        Gameboard.addMark(index, players[currentPlayerIndex].mark);
-        currentPlayerIndex = (currentPlayerIndex === 0) ? 1 : 0;
+        
+        if (Gameboard.getBoard()[index] === ""){
+            Gameboard.addMark(index, players[currentPlayerIndex].mark);
+            currentPlayerIndex = (currentPlayerIndex === 0) ? 1 : 0;
+        } else{
+            return;
+        }
     };
 
     return{
