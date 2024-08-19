@@ -59,8 +59,9 @@ const Controller = (()=> {
     const reset = () => {
         for (let i=0; i<9; i++){
             Gameboard.addMark(i, "");
-            Gameboard.render();
         }
+        Gameboard.render();
+        currentPlayerIndex= 0;
     }
 
     const squareClick = (event) => {
