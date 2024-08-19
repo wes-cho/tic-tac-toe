@@ -6,7 +6,7 @@ const Gameboard = (()=> {
 
         board.forEach((square, index) => {
             boardHTML += `<div class='square' id='square-${index}'>${square}</div>`;
-                });
+            });
 
         document.querySelector('#board').innerHTML = boardHTML;
     };
@@ -22,7 +22,6 @@ const createPlayer = (name, mark) => {
         mark
     }
 };
-
 
 const Controller = (()=> {
     let players = [];
@@ -49,5 +48,3 @@ startButton.addEventListener('click', () => {
     Controller.start();
     
 });
-
-Gameboard.render();
