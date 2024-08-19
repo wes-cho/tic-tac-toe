@@ -30,16 +30,27 @@ const Controller = (()=> {
 
     const start = () => {
         players = [
-            (createPlayer(document.querySelector('#p1').value), 'X'),
-            (createPlayer(document.querySelector('#p2').value), 'O'),
+            (createPlayer((document.querySelector('#p1').value), 'X')),
+            (createPlayer((document.querySelector('#p2').value), 'O')),
         ];
-    currentPlayerIndex = 0;
-    gameOver = false;
-    Gameboard.render();
+        currentPlayerIndex = 0;
+        gameOver = false;
+        Gameboard.render();
+        
+        const squares = document.querySelectorAll('.square');
+        squares.forEach((square) => {
+            square.addEventListener('click', squareClick)
+        });
+    };
+    
+    const squareClick = (event) => {
+        let index = parseInt(event.target.id.split('-')[1]);
+        addMark(index, players[currentPlayerIndex].mark)
+        // console.log(event.target.id)
     };
 
     return{
-        start
+        start,
     }
 })();
 
