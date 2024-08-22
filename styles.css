@@ -18,3 +18,19 @@
     text-align: center;
     font-size: 80px;
 }
+
+#controls-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+
+#controller{
+    justify-self: center;
+}
+
+#message{
+    font-size: 2rem;
+    color: black;
+    justify-self: center;
+}
