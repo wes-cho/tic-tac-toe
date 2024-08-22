@@ -70,6 +70,7 @@ const Controller = (()=> {
         for (let i=0; i<9; i++){
             Gameboard.addMark(i, "");
         }
+        displayController.renderMessage('');
         Gameboard.render();
         currentPlayerIndex= 0;
     }
@@ -138,4 +139,5 @@ startButton.addEventListener('click', () => {
 const resetButton = document.querySelector('#reset-button');
 resetButton.addEventListener('click', () => {
     Controller.reset();
+    Controller.start();
 })
